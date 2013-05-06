@@ -29,6 +29,11 @@ class zz {
 			$this->$name = $value;
 	}	
 
+	public function __get($name) {
+		
+			return $this->$name;
+	}	
+
 	public function setStart($v='') { // setter function for setting the starting value
 
 		if($v==="") // check if value is not provided
