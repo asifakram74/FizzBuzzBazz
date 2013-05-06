@@ -6,6 +6,7 @@ class zz {
 	private $y; // ending value
 	public $errors = array(); // errors array 
 	private $words = array('3'=>'Fizz', '5'=>'Buzz'); // zz words
+	private $bingo = 'Bazz'; // bazz word
 
 	public function __construct($x='' , $y= '') {
 		
@@ -102,21 +103,57 @@ class zz {
 		{
 			
 			$c = 1;
-			for($x=$this->x; $x<=$this->y; $x++)
+			$series = array(); //array of printed series
+			for($x=$this->x; $x<=$this->y; $x++) // loop from starting value to ending value
 			{
 				$strike = false;
 				if($c!=1)
 				echo ', ';
 
-				foreach($this->words as $key=>$word)
+
+				foreach($this->words as $key=>$word) // loop the zz words
 					if(($x%$key)==0)
 					{
-						echo $word;
-						$strike = true;
+						echo $word; // zz word
+						$strike = true; 
+						$series[] = $word;
 					}
 
+				/////BAZZ CODE START/////	
 				if($strike===false)		
-				echo $x;
+				{
+					$count_series = count($series);	
+					$count_words = count($this->words); 
+
+					if($count_series>=$count_words)	// the bazz word can only come after the zz words
+					{
+						$words = array_values($this->words);
+						for($i=$count_words; $i>0; $i--) // find the zz words in the last 2 positions of series
+						{
+						
+							if(in_array($series[$count_series-$i], $words))
+							{
+								$key = array_search($series[$count_series-$i], $words);
+								unset($words[$key]);
+							}
+
+						}
+						if(count($words)==0) // if the zz words found then print the bazz word
+						{
+							echo $this->bingo;
+							$series[] = $this->bingo;
+							$strike = true;
+						}	
+
+					}
+				}	
+				//////BAZZ CODE END/////
+
+				if($strike===false)	// if no zz/bazz word found then print the integer value	
+				{
+					echo $x;
+					$series[] = $x;
+				}
 			$c++;	
 			}
 
