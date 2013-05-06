@@ -1,9 +1,11 @@
 <?php 
 require_once 'zz.class.php';
+echo $_SERVER['REQUEST_URI'];
 ?>
 <html>
 	<head>
 		<title>Testing ZZ</title>
+
 	</head>
 	<body>
 		<form name="myform" action="" method="get">
@@ -18,5 +20,6 @@ require_once 'zz.class.php';
 			$zz->output();			
 		}			
 		?>
+	
 	</body>
 </html>
