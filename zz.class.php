@@ -32,6 +32,7 @@ class zz {
 	public function __get($name) {
 		
 			return $this->$name;
+
 	}	
 
 	public function setStart($v='') { // setter function for setting the starting value
@@ -128,10 +129,10 @@ class zz {
 		
 		switch($key) {
 			case 'UNVALID_START':
-				$this->errors[$key] = 'Please enter the valid (integer) starting value';
+				$this->errors[$key] = 'Please provide positive integer value of starting';
 				break;
 			case 'UNVALID_END':
-				$this->errors[$key] = 'Please enter the valid (integer) ending value';
+				$this->errors[$key] = 'Please provide positive integer value of ending';
 				break;
 			case 'START_MISSING':
 				$this->errors[$key] = 'Start value missing';
