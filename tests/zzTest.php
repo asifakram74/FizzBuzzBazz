@@ -45,9 +45,9 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	public function testOutputWithPositiveIntegerString() {
 
-		$this->zz->setStart('1');
-		$this->zz->setEnd('5');
-		$this->expectOutputString('1, 2, Fizz, 4, Buzz');
+		$this->zz->setStart('5');
+		$this->zz->setEnd('8');
+		$this->expectOutputString('Buzz, Fizz, Bazz, 8');
 		$this->zz->output();
 
 	}
@@ -63,9 +63,9 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	public function testOutputWithPositiveIntegerINT() {	
 	
-		$this->zz->setStart(1);
-		$this->zz->setEnd(5);
-		$this->expectOutputString('1, 2, Fizz, 4, Buzz');
+		$this->zz->setStart(5);
+		$this->zz->setEnd(8);
+		$this->expectOutputString('Buzz, Fizz, Bazz, 8');
 		$this->zz->output();		
 	
 	}	
@@ -92,7 +92,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 		$this->zz->setStart(0);
 		$this->zz->setEnd(5);
-		$this->expectOutputString('FizzBuzz, 1, 2, Fizz, 4, Buzz');
+		$this->expectOutputString('FizzBuzz, Bazz, 2, Fizz, 4, Buzz');
 		$this->zz->output();		
 
 	}
@@ -115,6 +115,8 @@ class zzTest extends PHPUnit_Framework_TestCase {
 		$this->zz->output();		
 
 	}
+
+
 
 	protected function tearDown() {
 
