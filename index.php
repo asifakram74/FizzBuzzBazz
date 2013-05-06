@@ -1,6 +1,5 @@
 <?php 
 require_once 'zz.class.php';
-echo $_SERVER['REQUEST_URI'];
 ?>
 <html>
 	<head>
