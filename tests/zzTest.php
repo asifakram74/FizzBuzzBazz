@@ -43,7 +43,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 		
 	}
 
-	public function testVariablesPositiveIntegerString() {
+	public function testOutputWithPositiveIntegerString() {
 
 		$this->zz->setStart('1');
 		$this->zz->setEnd('5');
@@ -52,7 +52,16 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	public function testVariablesPositiveIntegerINT() {	
+	public function testOutputWithString() {
+
+		$this->zz->setStart('one');
+		$this->zz->setEnd('five');
+		$this->expectOutputRegex('/provide positive integer value/s');
+		$this->zz->output();
+
+	}
+
+	public function testOutputWithPositiveIntegerINT() {	
 	
 		$this->zz->setStart(1);
 		$this->zz->setEnd(5);
@@ -61,7 +70,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 	
 	}	
 
-	public function testVariablesNegativeInteger() {
+	public function testOutputWithNegativeInteger() {
 
 		$this->zz->setStart(-1);
 		$this->zz->setEnd(5);
@@ -70,7 +79,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 		
 	}	
 
-	public function testVariablesPositiveDecimal() {
+	public function testOutputWithPositiveDecimal() {
 
 		$this->zz->setStart(1.5);
 		$this->zz->setEnd(5);
@@ -79,7 +88,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	public function testVariablesZero() {
+	public function testOutputWithZero() {
 
 		$this->zz->setStart(0);
 		$this->zz->setEnd(5);
@@ -88,7 +97,7 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	public function testVariablesInverseRange() {
+	public function testOutputWithInverseRange() {
 
 		$this->zz->setStart(5);
 		$this->zz->setEnd(1);
@@ -97,7 +106,16 @@ class zzTest extends PHPUnit_Framework_TestCase {
 
 	}
 
-	
+
+	public function testOutputWithEqual() {
+
+		$this->zz->setStart(1);
+		$this->zz->setEnd(1);
+		$this->expectOutputString('Starting value cannot be less than or equal to ending value <br>');
+		$this->zz->output();		
+
+	}
+
 	protected function tearDown() {
 
         unset($this->zz);
