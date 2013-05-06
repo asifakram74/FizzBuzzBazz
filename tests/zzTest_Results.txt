@@ -1,0 +1,14 @@
+zz
+ [x] Initialization
+ [x] Initializing variables
+ [x] Setting variables directly
+ [x] Setting variablesby methods
+ [x] Output with positive integer string
+ [x] Output with string
+ [x] Output with positive integer i n t
+ [x] Output with negative integer
+ [x] Output with positive decimal
+ [x] Output with zero
+ [x] Output with inverse range
+ [x] Output with equal
+
